@@ -2,7 +2,7 @@ FROM debian:jessie
 MAINTAINER Martin Peters
 
 RUN apt-get update -y && apt-get upgrade -y
-RUN apt-get install wget
+RUN apt-get install -y wget
 
 # add Mosquitto repository key
 RUN wget http://repo.mosquitto.org/debian/mosquitto-repo.gpg.key
