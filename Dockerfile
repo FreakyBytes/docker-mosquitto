@@ -2,6 +2,17 @@ FROM debian:jessie
 MAINTAINER Martin Peters
 
 RUN apt-get update -y && apt-get upgrade -y
+RUN apt-get install wget
+
+# add Mosquitto repository key
+RUN wget http://repo.mosquitto.org/debian/mosquitto-repo.gpg.key
+RUN apt-key add mosquitto-repo.gpg.key
+
+# add repository to sources.list.d
+RUN wget -O /etc/apt/sources.list.d/mosquitto-jessie.list http://repo.mosquitto.org/debian/mosquitto-jessie.list
+RUN apt-get update -y
+
+# finally install 
 RUN apt-get install -y mosquitto
 
 # add a user
