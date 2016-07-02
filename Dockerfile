@@ -6,7 +6,7 @@ RUN apt-get install -y mosquitto
 
 # add a user
 RUN adduser --system --disabled-password --disabled-login mosquitto
-RUN mkdir /config && chown mosquitto:mosquitto -R /config
+RUN mkdir /config && chown mosquitto -R /config
 USER mosquitto
 
 # expose a volumne for config and certs
