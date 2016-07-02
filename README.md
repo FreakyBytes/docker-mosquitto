@@ -12,3 +12,10 @@ Mosquitto is started looking for a config file in `/config/mosquitto.conf` and e
   * `1883` for unencrypted MQTT
   * `8883` for TLS encrypted MQTT
   * `8080` for MQTT via Websocket. TLS encryption is recommended
+
+Run this image
+--------------
+
+`docker run -p 1883:1883 -p 8883:8883 -p 8080:8080 freakybytes/mosquitto`
+
+Adjust port mapping according to your environment.
