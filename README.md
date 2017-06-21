@@ -1,7 +1,8 @@
 Mosquitto MQTT Dockerfile
 =========================
 
-This Dockerfile builds the Mosquitto MQTT broker based on Debian Jessie. This image uses the Mosquitto version from the official Debian repository
+This Dockerfile builds the Mosquitto MQTT broker based on Debian stable. This image uses the Mosquitto version from the official Mosquitto Debian repository.
+The Mosquitto MQTT broker runs under the user `mosquitto`
 
 Configuration
 -------------

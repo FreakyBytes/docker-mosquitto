@@ -1,4 +1,4 @@
-FROM debian:jessie
+FROM debian:stable
 MAINTAINER Martin Peters
 
 RUN apt-get update -y && apt-get upgrade -y
