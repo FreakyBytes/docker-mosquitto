@@ -26,5 +26,5 @@ VOLUME /config
 # expose ports (normal unencrypted, TLS encrypted, WS encrypted)
 EXPOSE 1883 8883 8080
 
-# start mosquitto in foreground
-ENTRYPOINT ["mosquitto", "-c", "/config/mosquitto.conf"]
+# start mosquitto as main process
+CMD ["mosquitto", "-c", "/config/mosquitto.conf"]
