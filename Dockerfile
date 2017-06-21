@@ -1,19 +1,18 @@
-FROM debian:stable
+FROM debian:jessie
 MAINTAINER Martin Peters
 
 RUN apt-get update -y && apt-get upgrade -y
-RUN apt-get install -y wget
+RUN apt-get install -y curl
 
 # add Mosquitto repository key
-RUN wget http://repo.mosquitto.org/debian/mosquitto-repo.gpg.key
-RUN apt-key add mosquitto-repo.gpg.key
+RUN curl http://repo.mosquitto.org/debian/mosquitto-repo.gpg.key | apt-key add -
 
 # add repository to sources.list.d
-RUN wget -O /etc/apt/sources.list.d/mosquitto-jessie.list http://repo.mosquitto.org/debian/mosquitto-jessie.list
+RUN curl http://repo.mosquitto.org/debian/mosquitto-jessie.list > /etc/apt/sources.list.d/mosquitto-jessie.list
 RUN apt-get update -y
 
 # finally install 
-RUN apt-get install -y mosquitto
+RUN apt-get install -y --no-install-recommends mosquitto mosquitto-clients
 
 # add a user
 RUN adduser --system --disabled-password --disabled-login mosquitto
